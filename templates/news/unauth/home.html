@@ -1,0 +1,48 @@
+{% extends 'base_unauth.html' %}
+{% block blog_sel %}sel{% endblock %}
+{% block blog_sel_arrow %}<div class="sel-container"><div class="sel-arrow"></div></div>{% endblock %}
+{% block main_body_id %}id='news-home'{% endblock %}
+{% block page_class %}{{ super.block }} empty-head{% endblock %}
+{% block header %}
+{{ block.super }}
+<div class="line">
+    <div class="comp-name">Title Here</div>
+    <h1>Latest News</h1>
+</div>
+{% endblock %}
+
+{% block page_content %}
+<div class="line">
+    <div class="size1of2">
+       <div class="news-post-block">
+            <div class="news-title"><h2>This is your first post!</h2><div class="flag"><div class="count">1</div></div></div>
+            <div class="news-details"><span>...</span></div>
+            <div class="news-preview"><span>...</span>
+                <span><a href="#">...read more</a></div>
+       </div>
+    </div>
+    <div class="size1of2 lastUnit">
+        <div id="rt-side">
+            <h3>About</h3>
+            <p>
+                </p>
+            <h3 class="recent-posts">Recent Posts</h3>
+                <ul>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                </ul>
+                </p>
+            <h3>Posts By Date</h3>
+                <ul>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                </ul>
+        </div>
+    </div>
+    </div>
+</div>
+
+{% endblock %}

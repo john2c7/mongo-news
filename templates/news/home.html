@@ -1,0 +1,42 @@
+{% extends 'news/base_news.html' %}
+
+{% block page_content %}
+<div class="line">
+    <div class="col-2of3">
+    {% block messages %}
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    {% endblock %}
+    {% block articles %}
+    {% if news %}
+      {% for a in news %}
+       <a href="add/">add </a><a href="{% url article_edit competition_slug a.uid %}">edit</a> <a href="{% url article_delete competition_slug a.uid %}">delete</a>
+       <div class="news-post-block">
+            <div class="news-title"><h2>{{ a.title }}</h2><div class="flag"><div class="count">1</div></div></div>
+            <div class="news-details"><span>Posted by {{ a.author }} &nbsp;&nbsp;&nbsp;&nbsp; {{ a.post_date }}</span></div>
+<div class="news-body"><span> {{ a.content|removetags:"p"|safe }}</span> <span><a href="{% url show_news_article competition_slug a.post_date|date:"Y" a.post_date|date:"n" a.post_date|date:"j" a.article_slug %}">... read more</a> </div>
+       </div> 
+      {% endfor %}
+    {% else %}
+        <p>There are currently no news articles<br><a href="add/">add one!</a></p>
+    {% endif %}
+    {% endblock %}
+    </div>
+    <div class="col-2of2 lastUnit news-recent-posts">
+        <h3 class="recent-posts">Recent Posts</h3>
+            {% if recent_posts %}
+                {% for r in recent_posts %}
+                <ul>
+                    <li><a href="{% url show_news_article competition_slug r.post_date|date:"Y" r.post_date|date:"n" r.post_date|date:"j" r.article_slug %}">{{ r.title }}</a></li>
+                </ul>
+                {% endfor %}
+            {% endif %}
+    </div>
+</div>
+        
+{% endblock %}

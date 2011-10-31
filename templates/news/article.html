@@ -1,0 +1,11 @@
+{% extends 'news/home.html' %}
+{% block articles %}
+      {% if article %}
+       <div class="news-post-block">
+            <div class="news-title"><h2>{{ article.title }}</h2><div class="flag"><div class="count">1</div></div></div>
+            <div class="news-details"><span>Posted by {{ article.author }} &nbsp;&nbsp;&nbsp;&nbsp; {{ a.post_date }}</span></div>
+<div class="news-preview"><span> {{ article.content|safe }}</span>  </div>
+       </div> 
+      {% endif %}
+        
+{% endblock %}

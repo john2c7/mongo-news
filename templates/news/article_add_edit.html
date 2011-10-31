@@ -4,7 +4,7 @@
 {% endblock %} 
 {% block articles %}
     <h2>{% if article_uid %} Update News Article {% else %} Add News Article {% endif %}</h2>
-<form method="post" action="{% if article_uid %}{% url article_edit competition_slug article_uid %} {% else %} {% url article_add competition_slug %} {% endif %}" class="inline">
+<form method="post" action="{% if article_uid %}{% url article_edit news_slug article_uid %} {% else %} {% url article_add news_slug %} {% endif %}" class="inline">
     {% csrf_token %}
     {% for field in form %}
         <div class="formwrapper">
